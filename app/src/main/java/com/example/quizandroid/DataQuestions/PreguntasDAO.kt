@@ -12,6 +12,6 @@ interface PreguntasDAO
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addPregunta(pregunta: Pregunta)
 
-    @Query("SELECT * FROM preguntas ORDER BY id  ASC")
+    @Query("SELECT * FROM preguntas ORDER BY idPreg ASC;")
     fun readAllData(): LiveData<List<Pregunta>>
 }
