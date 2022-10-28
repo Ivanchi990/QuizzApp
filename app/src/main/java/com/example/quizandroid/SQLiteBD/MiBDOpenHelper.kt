@@ -7,13 +7,15 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
+import com.example.quizandroid.ActivityPreguntas
 
 class MiBDOpenHelper(contex: Context, factory: SQLiteDatabase.CursorFactory?) :
     SQLiteOpenHelper(contex, DATABASE_NAME, factory, DATABASE_VERSION) {
 
     val TAG = "SQLite"
 
-    companion object {
+    companion object
+    {
         val DATABASE_VERSION = 1
         val DATABASE_NAME = "notas_tematica.db"
         val TABLA_PREGUNTAS = "preguntas"
@@ -24,6 +26,8 @@ class MiBDOpenHelper(contex: Context, factory: SQLiteDatabase.CursorFactory?) :
         val COLUMNA_RES3 = "res_!"
         val COLUMNA_RES4 = "res_!"
     }
+
+
 
     override fun onCreate(db: SQLiteDatabase?)
     {

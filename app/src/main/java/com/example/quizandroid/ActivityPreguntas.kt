@@ -4,43 +4,49 @@ import android.database.sqlite.SQLiteDatabase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.quizandroid.SQLiteBD.MiBDOpenHelper
 import com.example.quizandroid.SQLiteBD.SQLiteRecyclerViewAdapter
-
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ActivityPreguntas : AppCompatActivity()
 {
-    private lateinit var binding:
-
-    private lateinit var preguntasDBHelper: MiBDOpenHelper
+    private lateinit var preguntas: MiBDOpenHelper
     private lateinit var db: SQLiteDatabase
     private lateinit var miSQLiteRecyclerViewAdapter: SQLiteRecyclerViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
-        binding = ActivitySqliteBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        //Iniciamos el recyclerview
+        setContentView(R.layout.activity_preguntas)
+
         initRecyclerView()
 
-        //establecemos el binding al boton de crear nota
-        binding.buttonCrearNota.setOnClickListener
+        val fab = findViewById<FloatingActionButton>(R.id.fab)
+
+        fab.setOnClickListener()
         {
-            crearNota()
+            crearPregunta()
         }
     }
 
     fun initRecyclerView()
     {
-        preguntasDBHelper = MiBDOpenHelper(this, null)
+        preguntas = MiBDOpenHelper(this, null)
 
-        val cursor = preguntasDBHelper.obtenerPreguntas()
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclePreguntas)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        val cursor = preguntas.obtenerPreguntas()
+
         miSQLiteRecyclerViewAdapter = SQLiteRecyclerViewAdapter()
-        miSQLiteRecyclerViewAdapter.SQLiteRecyclerViewAapter(this, cursor)
+        miSQLiteRecyclerViewAdapter.SQLiteRecyclerViewAapter(this,  cursor)
 
-        binding.recyclerViewNotas.setHasFixedSize(true)
-        binding.recyclerViewNotas.layoutManager = LinearLayoutManager(this)
-        binding.recyclerViewNotas.adapter = miSQLiteRecyclerViewAdapter
+        recyclerView.adapter = miSQLiteRecyclerViewAdapter
+    }
+
+    fun crearPregunta()
+    {
+
     }
 }

@@ -12,25 +12,28 @@ class SQLiteRecyclerViewAdapter: RecyclerView.Adapter<PreguntasViewHolder>()
     private lateinit var context: Context
     private lateinit var cursor: Cursor
 
-    fun SQLiteRecyclerViewAapter(context: Context, cursor: Cursor) {
+    fun SQLiteRecyclerViewAapter(context: Context, cursor: Cursor)
+    {
         this.context = context
         this.cursor = cursor
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PreguntasViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PreguntasViewHolder
+    {
         val layoutInflater = LayoutInflater.from(parent.context)
         return PreguntasViewHolder(layoutInflater.inflate(R.layout.item_pregunta, parent, false))
     }
 
     //Renederizamos cada elemento de la lista
-    override fun onBindViewHolder(holder: PreguntasViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: PreguntasViewHolder, position: Int)
+    {
         cursor.moveToPosition(position)
-        holder.render(cursor.getInt(0),cursor.getString(1))
+        holder.render(cursor.getInt(0),cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5))
     }
 
     //Obtenemos el tamaño de la lista
-    override fun getItemCount(): Int {
+    override fun getItemCount(): Int
+    {
         return cursor.count
-
     }
 }

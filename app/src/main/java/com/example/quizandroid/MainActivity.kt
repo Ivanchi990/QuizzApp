@@ -9,7 +9,6 @@ import android.view.View
 class MainActivity : AppCompatActivity()
 {
 
-private lateinit var binding:
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)

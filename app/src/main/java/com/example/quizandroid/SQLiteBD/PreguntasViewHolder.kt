@@ -5,7 +5,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.quizandroid.R
 
-class PreguntasViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class PreguntasViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+{
     val pregunta_id = itemView.findViewById<TextView>(R.id.textoPreguntaId)
     val pregunta_texto = itemView.findViewById<TextView>(R.id.textoPregunta)
     val res1 = itemView.findViewById<TextView>(R.id.textoRespuesta1)
