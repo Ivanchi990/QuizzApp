@@ -8,7 +8,7 @@
     <TextView
         android:id="@+id/textoPreguntaId"
         android:layout_width="40dp"
-        android:layout_height="120dp"
+        android:layout_height="40dp"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,40 +19,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="75px"
+        android:onClick="mostrarRespuestas"
         app:layout_constraintStart_toEndOf="@+id/textoPreguntaId"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="¿Buenas nalgas?"/>
 
-    <TextView
-        android:id="@+id/textoRespuesta1"
+    <Button
+        android:id="@+id/buttonBorrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="35px"
-        app:layout_constraintStart_toEndOf="@id/textoPreguntaId"
-        app:layout_constraintTop_toBottomOf="@id/textoPregunta"
-        tools:text="Muy buenas"/>
-    <TextView
-        android:id="@+id/textoRespuesta2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="35px"
-        app:layout_constraintStart_toEndOf="@id/textoPreguntaId"
-        app:layout_constraintTop_toBottomOf="@id/textoRespuesta1"
-        tools:text="Muy malas"/>
-    <TextView
-        android:id="@+id/textoRespuesta3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="35px"
-        app:layout_constraintStart_toEndOf="@id/textoPreguntaId"
-        app:layout_constraintTop_toBottomOf="@id/textoRespuesta2"
-        tools:text="Buenas"/>
-    <TextView
-        android:id="@+id/textoRespuesta4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="35px"
-        app:layout_constraintStart_toEndOf="@id/textoPreguntaId"
-        app:layout_constraintTop_toBottomOf="@id/textoRespuesta3"
-        tools:text="Megh"/>
+        android:text="Eliminar"
+        app:layout_constraintStart_toEndOf="@+id/textoPregunta"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="319dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,14 +17,14 @@ class MiBDOpenHelper(contex: Context, factory: SQLiteDatabase.CursorFactory?) :
     companion object
     {
         val DATABASE_VERSION = 1
-        val DATABASE_NAME = "notas_tematica.db"
+        val DATABASE_NAME = "preguntas.db"
         val TABLA_PREGUNTAS = "preguntas"
         val COLUMNA_ID = "id_preg"
         val COLUMNA_TEXTO = "texto_preg"
-        val COLUMNA_RES1 = "res_!"
-        val COLUMNA_RES2 = "res_!"
-        val COLUMNA_RES3 = "res_!"
-        val COLUMNA_RES4 = "res_!"
+        val COLUMNA_RES1 = "res_1"
+        val COLUMNA_RES2 = "res_2"
+        val COLUMNA_RES3 = "res_3"
+        val COLUMNA_RES4 = "res_4"
     }
 
 
@@ -33,17 +33,12 @@ class MiBDOpenHelper(contex: Context, factory: SQLiteDatabase.CursorFactory?) :
     {
         try
         {
-            var crearTablaPreguntas =
-                "CREATE TABLE $TABLA_PREGUNTAS ($COLUMNA_ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                        "$COLUMNA_TEXTO TEXT," +
-                        "$COLUMNA_RES1 TEXT," +
-                        "$COLUMNA_RES2 TEXT," +
-                        "$COLUMNA_RES3 TEXT," +
-                        "$COLUMNA_RES4)"
+            var crearTablaPreguntas = "CREATE TABLE $TABLA_PREGUNTAS ($COLUMNA_ID INTEGER PRIMARY KEY AUTOINCREMENT, $COLUMNA_TEXTO TEXT, $COLUMNA_RES1 TEXT, $COLUMNA_RES2 TEXT, $COLUMNA_RES3 TEXT, $COLUMNA_RES4 TEXT)"
+
             db!!.execSQL(crearTablaPreguntas)
         }
             catch (e: SQLiteException)
-            {
+        {
             Log.e("$TAG (onCreate)", e.message.toString())
         }
     }
@@ -57,7 +52,7 @@ class MiBDOpenHelper(contex: Context, factory: SQLiteDatabase.CursorFactory?) :
             onCreate(db)
         }
             catch (e: SQLiteException)
-            {
+        {
             Log.e("$TAG (onUpgrade)", e.message.toString())
         }
     }
@@ -91,6 +86,27 @@ class MiBDOpenHelper(contex: Context, factory: SQLiteDatabase.CursorFactory?) :
     {
         val db= this.readableDatabase
         var cursor = db.rawQuery("SELECT * FROM ${MiBDOpenHelper.TABLA_PREGUNTAS}", null)
+
         return cursor
+    }
+
+    fun obtenerPregunta(id: String):Cursor
+    {
+        val num = Integer.parseInt(id)
+
+        val db= this.readableDatabase
+        var cursor = db.rawQuery("SELECT * FROM ${MiBDOpenHelper.TABLA_PREGUNTAS} WHERE $COLUMNA_ID= $num", null)
+
+        cursor.moveToFirst()
+
+        return cursor
+    }
+
+    fun eliminarPregunta(id: String)
+    {
+        val num = Integer.parseInt(id)
+
+        val db= this.readableDatabase
+        db.rawQuery("DELETE FROM ${MiBDOpenHelper.TABLA_PREGUNTAS} WHERE $COLUMNA_ID = $num", null)
     }
 }

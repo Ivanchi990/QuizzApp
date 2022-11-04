@@ -1,8 +1,10 @@
 package com.example.quizandroid
 
-import android.database.sqlite.SQLiteDatabase
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.quizandroid.SQLiteBD.MiBDOpenHelper
@@ -12,13 +14,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 class ActivityPreguntas : AppCompatActivity()
 {
     private lateinit var preguntas: MiBDOpenHelper
-    private lateinit var db: SQLiteDatabase
     private lateinit var miSQLiteRecyclerViewAdapter: SQLiteRecyclerViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_preguntas)
+
+        preguntas = MiBDOpenHelper(this, null)
 
         initRecyclerView()
 
@@ -32,14 +35,16 @@ class ActivityPreguntas : AppCompatActivity()
 
     fun initRecyclerView()
     {
-        preguntas = MiBDOpenHelper(this, null)
-
         val recyclerView = findViewById<RecyclerView>(R.id.recyclePreguntas)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         val cursor = preguntas.obtenerPreguntas()
 
-        miSQLiteRecyclerViewAdapter = SQLiteRecyclerViewAdapter()
+        miSQLiteRecyclerViewAdapter = SQLiteRecyclerViewAdapter(
+            onClickListener = { pos -> dameID(pos) },
+            onClickDelete = { posi -> eliminaID(posi)}
+        )
+
         miSQLiteRecyclerViewAdapter.SQLiteRecyclerViewAapter(this,  cursor)
 
         recyclerView.adapter = miSQLiteRecyclerViewAdapter
@@ -47,6 +52,24 @@ class ActivityPreguntas : AppCompatActivity()
 
     fun crearPregunta()
     {
+        intent = Intent(this, CrearPregunta::class.java)
 
+        startActivity(intent)
+    }
+
+    fun dameID(pos: String)
+    {
+        intent = Intent(this, MostrarPregunta::class.java).apply {
+            putExtra("id", pos)
+        }
+
+        startActivity(intent)
+    }
+
+
+    fun eliminaID(pos: String)
+    {
+        preguntas.eliminarPregunta(pos)
+        miSQLiteRecyclerViewAdapter.notifyDataSetChanged()
     }
 }
