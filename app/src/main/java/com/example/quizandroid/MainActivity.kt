@@ -18,7 +18,9 @@ class MainActivity : AppCompatActivity()
 
     fun empezar(view: View)
     {
+        intent = Intent(this, EmpezarQuizz::class.java)
 
+        startActivity(intent)
     }
 
     fun listarPreguntas(view: View)

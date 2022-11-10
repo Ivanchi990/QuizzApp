@@ -68,13 +68,9 @@ class MiBDOpenHelper(contex: Context, factory: SQLiteDatabase.CursorFactory?) :
         val data = ContentValues()
         data.put(COLUMNA_TEXTO,textoPregunta)
 
-        val data1 = ContentValues()
         data.put(COLUMNA_RES1,res1)
-        val data2 = ContentValues()
         data.put(COLUMNA_RES2,res2)
-        val data3 = ContentValues()
         data.put(COLUMNA_RES3,res3)
-        val data4 = ContentValues()
         data.put(COLUMNA_RES4,res4)
 
         val db= this.writableDatabase

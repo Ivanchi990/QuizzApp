@@ -24,12 +24,13 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="¿Buenas nalgas?"/>
 
+
     <Button
         android:id="@+id/buttonBorrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Eliminar"
-        app:layout_constraintStart_toEndOf="@+id/textoPregunta"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="319dp" />
+        android:backgroundTint="@color/design_default_color_error"
+        android:text="Borrar"
+        app:layout_constraintBottom_toBottomOf="@+id/textoPreguntaId"
+        app:layout_constraintRight_toRightOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

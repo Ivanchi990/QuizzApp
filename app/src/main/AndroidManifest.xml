@@ -13,6 +13,13 @@
         android:theme="@style/Theme.QuizAndroid"
         tools:targetApi="32">
         <activity
+            android:name=".EmpezarQuizz"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".MostrarPregunta"
             android:exported="false">
             <meta-data
