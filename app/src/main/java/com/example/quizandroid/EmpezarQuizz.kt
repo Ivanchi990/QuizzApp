@@ -1,5 +1,6 @@
 package com.example.quizandroid
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -33,5 +34,11 @@ class EmpezarQuizz : AppCompatActivity()
         }
 
         marcadorViewModel.getMarcador().observe(this, nameObserver)
+
+        binding?.fabCasa?.setOnClickListener{
+            intent = Intent(this, MainActivity::class.java)
+
+            startActivity(intent)
+        }
     }
 }
