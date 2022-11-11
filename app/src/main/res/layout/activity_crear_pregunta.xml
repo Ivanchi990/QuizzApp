@@ -10,9 +10,12 @@
         android:id="@+id/cabecera"
         android:layout_width="194dp"
         android:layout_height="41dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginEnd="109dp"
         android:text="Crear pregunta"
         android:textSize="75px"
-        tools:layout_editor_absoluteX="108dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="61dp" />
 
     <TextView
@@ -20,16 +23,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Respuesta correcta:"
-        tools:layout_editor_absoluteX="6dp"
-        tools:layout_editor_absoluteY="297dp" />
-
-    <TextView
-        android:id="@+id/textPreg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pregunta"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="168dp" />
+        app:layout_constraintEnd_toStartOf="@+id/getRes4"
+        tools:layout_editor_absoluteY="367dp" />
 
     <TextView
         android:id="@+id/textRes1"
@@ -46,15 +41,15 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        tools:layout_editor_absoluteX="140dp"
-        tools:layout_editor_absoluteY="366dp" />
+        app:layout_constraintTop_toBottomOf="@+id/getRes3"
+        tools:layout_editor_absoluteX="140dp" />
 
     <TextView
         android:id="@+id/textRes2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Respuesta 2:"
-        tools:layout_editor_absoluteX="43dp"
+        app:layout_constraintEnd_toStartOf="@+id/getRes2"
         tools:layout_editor_absoluteY="246dp" />
 
     <EditText
@@ -64,15 +59,15 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        tools:layout_editor_absoluteX="132dp"
-        tools:layout_editor_absoluteY="277dp" />
+        app:layout_constraintTop_toBottomOf="@+id/getRes1"
+        tools:layout_editor_absoluteX="132dp" />
 
     <TextView
         android:id="@+id/textRes3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Respuesta 3:"
-        tools:layout_editor_absoluteX="45dp"
+        app:layout_constraintEnd_toStartOf="@+id/getRes3"
         tools:layout_editor_absoluteY="269dp" />
 
     <EditText
@@ -82,8 +77,8 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        tools:layout_editor_absoluteX="134dp"
-        tools:layout_editor_absoluteY="322dp" />
+        app:layout_constraintTop_toBottomOf="@+id/getRes2"
+        tools:layout_editor_absoluteX="134dp" />
 
     <EditText
         android:id="@+id/getRes1"
@@ -93,17 +88,7 @@
         android:inputType="textPersonName"
         android:text="Name"
         tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="232dp" />
-
-    <EditText
-        android:id="@+id/getPreg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="118dp"
-        tools:layout_editor_absoluteY="154dp"
-        tools:text="Introduce tu nombre" />
+        tools:layout_editor_absoluteY="190dp" />
 
     <Button
         android:id="@+id/volver"

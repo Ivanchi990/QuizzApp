@@ -52,7 +52,7 @@ class ActivityPreguntas : AppCompatActivity()
 
     fun crearPregunta()
     {
-        intent = Intent(this, CrearPregunta::class.java)
+        intent = Intent(this, CrearTitulo::class.java)
 
         startActivity(intent)
     }
