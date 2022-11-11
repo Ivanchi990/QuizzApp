@@ -8,136 +8,110 @@
 
     <TextView
         android:id="@+id/cabecera"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="65dp"
-        android:layout_marginEnd="111dp"
+        android:layout_width="194dp"
+        android:layout_height="41dp"
         android:text="Crear pregunta"
         android:textSize="75px"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="108dp"
+        tools:layout_editor_absoluteY="61dp" />
 
     <TextView
         android:id="@+id/textRes4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:text="Respuesta correcta:"
-        app:layout_constraintEnd_toStartOf="@+id/getRes4"
-        app:layout_constraintTop_toBottomOf="@+id/textRes3" />
+        tools:layout_editor_absoluteX="6dp"
+        tools:layout_editor_absoluteY="297dp" />
 
     <TextView
         android:id="@+id/textPreg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="73dp"
-        android:layout_marginTop="83dp"
-        android:layout_marginEnd="24dp"
         android:text="Pregunta"
-        app:layout_constraintEnd_toStartOf="@+id/getPreg"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cabecera" />
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="168dp" />
 
     <TextView
         android:id="@+id/textRes1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="8dp"
         android:text="Respuesta 1:"
-        app:layout_constraintEnd_toStartOf="@+id/getRes1"
-        app:layout_constraintTop_toBottomOf="@+id/textPreg" />
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="227dp" />
 
     <EditText
         android:id="@+id/getRes4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="62dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/getRes3" />
+        tools:layout_editor_absoluteX="140dp"
+        tools:layout_editor_absoluteY="366dp" />
 
     <TextView
         android:id="@+id/textRes2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:text="Respuesta 2:"
-        app:layout_constraintEnd_toStartOf="@+id/getRes2"
-        app:layout_constraintTop_toBottomOf="@+id/textRes1" />
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="246dp" />
 
     <EditText
         android:id="@+id/getRes2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="70dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/getRes1" />
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="277dp" />
 
     <TextView
         android:id="@+id/textRes3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
         android:text="Respuesta 3:"
-        app:layout_constraintEnd_toStartOf="@+id/getRes3"
-        app:layout_constraintTop_toBottomOf="@+id/textRes2" />
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="269dp" />
 
     <EditText
         android:id="@+id/getRes3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="68dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/getRes2" />
+        tools:layout_editor_absoluteX="134dp"
+        tools:layout_editor_absoluteY="322dp" />
 
     <EditText
         android:id="@+id/getRes1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="76dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/getPreg" />
+        tools:layout_editor_absoluteX="126dp"
+        tools:layout_editor_absoluteY="232dp" />
 
     <EditText
         android:id="@+id/getPreg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="83dp"
-        android:layout_marginEnd="92dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cabecera"
+        tools:layout_editor_absoluteX="118dp"
+        tools:layout_editor_absoluteY="154dp"
         tools:text="Introduce tu nombre" />
 
     <Button
         android:id="@+id/volver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="158dp"
-        android:layout_marginEnd="159dp"
-        android:layout_marginBottom="108dp"
-        android:text="Volver"
         android:onClick="volver"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:text="Volver"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="575dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

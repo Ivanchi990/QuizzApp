@@ -10,17 +10,19 @@ class MarcadorViewModel: ViewModel()
     private var preguntaActual = 1
     private var totalPreguntas: Int = 0
     private var acertado = false
-    private var aciertos = 0
+    var aciertos = 0
     private var marcador: MutableLiveData<Int>
 
     init
     {
         marcador = MutableLiveData<Int>()
+
+        marcador.setValue(1)
     }
 
     fun setAcertado(estado: Boolean)
     {
-        if(estado == true)
+        if(estado)
             aciertos += 1
 
         this.acertado = estado

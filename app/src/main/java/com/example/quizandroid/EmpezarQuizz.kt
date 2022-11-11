@@ -35,7 +35,7 @@ class EmpezarQuizz : AppCompatActivity()
 
         marcadorViewModel.getMarcador().observe(this, nameObserver)
 
-        binding?.fabCasa?.setOnClickListener{
+        binding?.fabHome?.setOnClickListener{
             intent = Intent(this, MainActivity::class.java)
 
             startActivity(intent)

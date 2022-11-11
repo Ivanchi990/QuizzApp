@@ -71,7 +71,7 @@ class FragmentPreguntas : Fragment()
                 if((binding?.res1?.isChecked == true && binding!!.res1.text.equals(correcta))
                     || (binding?.res2?.isChecked == true  && binding!!.res2.text.equals(correcta))
                     || (binding?.res3?.isChecked == true && binding!!.res3.text.equals(correcta))
-                    || (binding?.res1?.isChecked == true && binding!!.res1.text.equals(correcta)))
+                    || (binding?.res4?.isChecked == true && binding!!.res4.text.equals(correcta)))
                 {
                     marcadorViewModel.setAcertado(true)
                 }

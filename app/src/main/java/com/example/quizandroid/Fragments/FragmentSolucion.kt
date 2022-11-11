@@ -59,7 +59,7 @@ class FragmentSolucion : Fragment()
 
     fun siguientePreg()
     {
-        if(marcadorViewModel.getPreguntas() == marcadorViewModel.getPreguntaActual())
+        if(marcadorViewModel.getPreguntas() < marcadorViewModel.getPreguntaActual())
         {
             val transaction = fragmentManager?.beginTransaction()
 

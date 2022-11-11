@@ -25,8 +25,7 @@
         android:layout_marginStart="176dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="177dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/volverInicio"
+        android:text="Has contestado 15 preguntas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/porcentajeAciertos" />
@@ -35,9 +34,9 @@
         android:id="@+id/totalPreguntas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
+        android:layout_marginStart="120dp"
         android:layout_marginTop="48dp"
-        android:text="TextView"
+        android:text="Has acertado 12 preguntas"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textoFin" />
 
@@ -48,18 +47,9 @@
         android:layout_marginStart="176dp"
         android:layout_marginTop="148dp"
         android:layout_marginEnd="177dp"
-        android:text="TextView"
+        android:text="Has fallado 3 preguntas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/totalPreguntas" />
 
-    <Button
-        android:id="@+id/volverInicio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="72dp"
-        android:text="Home"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
