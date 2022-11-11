@@ -11,22 +11,25 @@ import com.example.quizandroid.databinding.ActivityEmpezarQuizzBinding
 
 class EmpezarQuizz : AppCompatActivity()
 {
-    private lateinit var binding: ActivityEmpezarQuizzBinding
+    private var binding: ActivityEmpezarQuizzBinding? = null
     private val marcadorViewModel: MarcadorViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
         binding = ActivityEmpezarQuizzBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(binding!!.root)
 
         val base = MiBDOpenHelper(this, null)
+
+        marcadorViewModel.setDatabase(base)
+
         var cursor = base.obtenerPreguntas()
 
         marcadorViewModel.setPreguntas(cursor.count)
 
         val nameObserver = Observer<Int>{ valor ->
-            binding.mostrarPuntos?.setText(valor.toString())
+            binding!!.mostrarPuntos?.setText(valor.toString())
         }
 
         marcadorViewModel.getMarcador().observe(this, nameObserver)

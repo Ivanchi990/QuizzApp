@@ -37,7 +37,7 @@ class MiBDOpenHelper(contex: Context, factory: SQLiteDatabase.CursorFactory?) :
 
             db!!.execSQL(crearTablaPreguntas)
         }
-            catch (e: SQLiteException)
+        catch (e: SQLiteException)
         {
             Log.e("$TAG (onCreate)", e.message.toString())
         }
@@ -51,7 +51,7 @@ class MiBDOpenHelper(contex: Context, factory: SQLiteDatabase.CursorFactory?) :
             db!!.execSQL(dropTablaPreguntas)
             onCreate(db)
         }
-            catch (e: SQLiteException)
+        catch (e: SQLiteException)
         {
             Log.e("$TAG (onUpgrade)", e.message.toString())
         }

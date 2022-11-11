@@ -8,13 +8,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import com.example.quizandroid.R
+import com.example.quizandroid.SQLiteBD.MiBDOpenHelper
 import com.example.quizandroid.databinding.ActivityEmpezarQuizzBinding
 import com.example.quizandroid.databinding.FragmentPreguntasBinding
 
 class FragmentPreguntas : Fragment()
 {
     private val marcadorViewModel: MarcadorViewModel by activityViewModels()
-    private lateinit var binding: FragmentPreguntasBinding
+    private lateinit var base: MiBDOpenHelper
+    private var binding: FragmentPreguntasBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -24,10 +26,14 @@ class FragmentPreguntas : Fragment()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                     savedInstanceState: Bundle?): View?
     {
+        base = marcadorViewModel.getDatabase()!!
+
         val frag = FragmentPreguntasBinding.inflate(inflater, container, false)
         binding = frag
 
-        binding.comprobarRes.setOnClickListener()
+        cargarTodo()
+
+        binding?.comprobarRes?.setOnClickListener()
         {
             compronbarRespuesta()
         }
@@ -35,11 +41,50 @@ class FragmentPreguntas : Fragment()
         return frag.root
     }
 
+    fun cargarTodo()
+    {
+        val pregunta = base.obtenerPregunta(marcadorViewModel.getPreguntaActual().toString())
+
+        binding?.textoPreguntas?.text = pregunta.getString(1)
+
+        binding?.res1?.text = pregunta.getString(2)
+        binding?.res2?.text = pregunta.getString(3)
+        binding?.res3?.text = pregunta.getString(4)
+        binding?.res4?.text = pregunta.getString(5)
+    }
+
     fun compronbarRespuesta()
     {
-        if(binding.radio.getCheckedRadioButtonId() == -1)
+        if(binding?.radio?.getCheckedRadioButtonId() == -1)
         {
-            //binding.Toast.makeText(this, "Tienes que seleccionar una opción", Toast.LENGTH_SHORT).show
+            Toast.makeText(this.context, "Tienes que seleccionar una opción",
+                        Toast.LENGTH_SHORT).show()
+        }
+        else
+        {
+            if (base != null)
+            {
+                val soluciones = base.obtenerPregunta(marcadorViewModel.getPreguntaActual().toString())
+
+                val correcta = soluciones.getString(5)
+
+                if((binding?.res1?.isChecked == true && binding!!.res1.text.equals(correcta))
+                    || (binding?.res2?.isChecked == true  && binding!!.res2.text.equals(correcta))
+                    || (binding?.res3?.isChecked == true && binding!!.res3.text.equals(correcta))
+                    || (binding?.res1?.isChecked == true && binding!!.res1.text.equals(correcta)))
+                {
+                    marcadorViewModel.setAcertado(true)
+                }
+
+                marcadorViewModel.setPreguntaActual()
+
+                val transaction= fragmentManager?.beginTransaction()
+                val fragmento2 = FragmentSolucion()
+
+                transaction?.replace(R.id.fragmentContainerView,fragmento2)
+                transaction?.addToBackStack(null)
+                transaction?.commit()
+            }
         }
     }
 }
