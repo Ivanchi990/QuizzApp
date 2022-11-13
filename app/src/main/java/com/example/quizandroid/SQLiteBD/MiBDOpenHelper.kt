@@ -102,7 +102,7 @@ class MiBDOpenHelper(contex: Context, factory: SQLiteDatabase.CursorFactory?) :
     {
         val num = Integer.parseInt(id)
 
-        val db= this.readableDatabase
+        val db= this.writableDatabase
         db.rawQuery("DELETE FROM ${MiBDOpenHelper.TABLA_PREGUNTAS} WHERE $COLUMNA_ID = $num", null)
     }
 }

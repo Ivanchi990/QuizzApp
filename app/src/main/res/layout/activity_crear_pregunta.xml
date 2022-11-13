@@ -4,99 +4,146 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/green"
     tools:context=".CrearPregunta">
 
-    <TextView
-        android:id="@+id/cabecera"
-        android:layout_width="194dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginEnd="109dp"
-        android:text="Crear pregunta"
-        android:textSize="75px"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        app:cardBackgroundColor="@color/orange"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="61dp" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/textRes4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Respuesta correcta:"
-        app:layout_constraintEnd_toStartOf="@+id/getRes4"
-        tools:layout_editor_absoluteY="367dp" />
+        <TextView
+            android:id="@+id/cabecera"
+            android:layout_width="194dp"
+            android:layout_height="41dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="108dp"
+            android:layout_marginEnd="109dp"
+            android:text="Crear pregunta"
+            android:textSize="75px" />
+
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/textRes1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="88dp"
         android:text="Respuesta 1:"
-        tools:layout_editor_absoluteX="27dp"
-        tools:layout_editor_absoluteY="227dp" />
-
-    <EditText
-        android:id="@+id/getRes4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintTop_toBottomOf="@+id/getRes3"
-        tools:layout_editor_absoluteX="140dp" />
-
-    <TextView
-        android:id="@+id/textRes2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Respuesta 2:"
-        app:layout_constraintEnd_toStartOf="@+id/getRes2"
-        tools:layout_editor_absoluteY="246dp" />
-
-    <EditText
-        android:id="@+id/getRes2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintTop_toBottomOf="@+id/getRes1"
-        tools:layout_editor_absoluteX="132dp" />
-
-    <TextView
-        android:id="@+id/textRes3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Respuesta 3:"
-        app:layout_constraintEnd_toStartOf="@+id/getRes3"
-        tools:layout_editor_absoluteY="269dp" />
-
-    <EditText
-        android:id="@+id/getRes3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintTop_toBottomOf="@+id/getRes2"
-        tools:layout_editor_absoluteX="134dp" />
+        android:textSize="45px"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <EditText
         android:id="@+id/getRes1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginEnd="36dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="190dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textRes1"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <TextView
+        android:id="@+id/textRes2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="28dp"
+        android:text="Respuesta 2:"
+        android:textSize="45px"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textRes1" />
+
+    <EditText
+        android:id="@+id/getRes2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="37dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textRes2"
+        app:layout_constraintTop_toBottomOf="@+id/getRes1" />
+
+    <TextView
+        android:id="@+id/textRes3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="5dp"
+        android:text="Respuesta 3:"
+        android:textSize="45px"
+        app:layout_constraintEnd_toStartOf="@+id/getRes3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textRes2" />
+
+    <EditText
+        android:id="@+id/getRes3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="37dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintBottom_toTopOf="@+id/getRes4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textRes3"
+        app:layout_constraintTop_toBottomOf="@+id/getRes2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textRes4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="372dp"
+        android:text="Respuesta 4:"
+        android:textSize="45px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textRes3" />
+
+    <EditText
+        android:id="@+id/getRes4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="256dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        app:layout_constraintBottom_toTopOf="@+id/volver"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textRes4" />
 
     <Button
         android:id="@+id/volver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="63dp"
         android:onClick="volver"
         android:text="Volver"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="575dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
