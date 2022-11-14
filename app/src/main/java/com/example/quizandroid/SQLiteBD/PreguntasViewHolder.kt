@@ -24,7 +24,7 @@ class PreguntasViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
         }
 
         buttonBorrar.setOnClickListener{
-            onClickDelete(pregunta_id.text.toString())
+            onClickDelete(id_pregunta.toString())
         }
     }
 }

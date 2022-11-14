@@ -18,38 +18,55 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/porcentajeFallos"
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="177dp"
-        android:text="Has contestado 15 preguntas"
+        android:layout_height="100px"
+        android:layout_marginTop="101dp"
+        android:layout_marginEnd="96dp"
+        app:cardBackgroundColor="@color/green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalPreguntas">
+
+        <TextView
+            android:id="@+id/porcentajeAciertos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Has acertado 12 preguntas"
+            android:textSize="50px" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="100px"
+        android:layout_marginTop="101dp"
+        app:cardBackgroundColor="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/porcentajeAciertos" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView2">
+
+        <TextView
+            android:id="@+id/porcentajeFallos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Has fallado 3 preguntas"
+            android:textSize="50px" />
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/totalPreguntas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="48dp"
-        android:text="Has acertado 12 preguntas"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textoFin" />
-
-    <TextView
-        android:id="@+id/porcentajeAciertos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="148dp"
-        android:layout_marginEnd="177dp"
-        android:text="Has fallado 3 preguntas"
+        android:layout_marginTop="101dp"
+        android:text="Has contestado 15 preguntas"
+        android:textSize="50px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/totalPreguntas" />
+        app:layout_constraintTop_toBottomOf="@+id/textoFin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

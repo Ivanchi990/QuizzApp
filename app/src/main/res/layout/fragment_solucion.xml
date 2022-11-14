@@ -12,10 +12,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="127dp"
+        android:layout_marginTop="84dp"
         android:layout_marginEnd="24dp"
         android:textSize="75px"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Enhorabuena has acertado!!!" />
@@ -33,12 +34,13 @@
 
     <ImageView
         android:id="@+id/fotoAcierto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="800px"
+        android:layout_height="1000px"
         android:src="@drawable/monofeliz"
         app:layout_constraintBottom_toTopOf="@+id/nextPreg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="1.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
