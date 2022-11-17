@@ -26,6 +26,11 @@ class FragmentPreguntas : Fragment()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                     savedInstanceState: Bundle?): View?
     {
+        if(marcadorViewModel.getPreguntaActual() > marcadorViewModel.getMaxAcertado())
+        {
+            marcadorViewModel.setMaxAcertado()
+        }
+
         base = marcadorViewModel.getDatabase()!!
 
         val frag = FragmentPreguntasBinding.inflate(inflater, container, false)
@@ -43,7 +48,7 @@ class FragmentPreguntas : Fragment()
 
     fun cargarTodo()
     {
-        val pregunta = base.obtenerPregunta(marcadorViewModel.getPreguntaActual().toString())
+        val pregunta = base.obtenerPregunta(marcadorViewModel.getPreguntaActual())
 
         binding?.textoPreguntas?.text = pregunta.getString(1)
 
@@ -64,7 +69,7 @@ class FragmentPreguntas : Fragment()
         {
             if (base != null)
             {
-                val soluciones = base.obtenerPregunta(marcadorViewModel.getPreguntaActual().toString())
+                val soluciones = base.obtenerPregunta(marcadorViewModel.getPreguntaActual())
 
                 val correcta = soluciones.getString(5)
 

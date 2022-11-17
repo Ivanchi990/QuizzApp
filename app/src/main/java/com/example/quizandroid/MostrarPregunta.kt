@@ -9,8 +9,7 @@ import com.example.quizandroid.SQLiteBD.MiBDOpenHelper
 
 class MostrarPregunta : AppCompatActivity()
 {
-    private lateinit var texto: String
-
+    private var idPreg: Int = 0
     private lateinit var textoPreg: TextView
     private lateinit var textoRes1: TextView
     private lateinit var textoRes2: TextView
@@ -28,7 +27,7 @@ class MostrarPregunta : AppCompatActivity()
         textoRes3 = findViewById(R.id.textoRes3)
         textoRes4 = findViewById(R.id.textoRes4)
 
-        texto = intent.getStringExtra("id").toString()
+        idPreg = intent.getIntExtra("id", 0)
 
         mostraPregunta()
     }
@@ -37,7 +36,7 @@ class MostrarPregunta : AppCompatActivity()
     {
         val preg = MiBDOpenHelper(this, null)
 
-        val cursor = preg.obtenerPregunta(texto)
+        val cursor = preg.obtenerPregunta(idPreg)
 
         textoPreg.text = cursor.getString(1)
         textoRes1.text = cursor.getString(2)

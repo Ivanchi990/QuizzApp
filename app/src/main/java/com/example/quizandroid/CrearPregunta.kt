@@ -23,7 +23,7 @@ class CrearPregunta : AppCompatActivity()
 
         pregunta = intent.getStringExtra("preg").toString()
     }
-    
+
     fun volver(view: View)
     {
         res1 = findViewById<EditText>(R.id.getRes1)

@@ -11,13 +11,14 @@ class MarcadorViewModel: ViewModel()
     private var totalPreguntas: Int = 0
     private var acertado = false
     var aciertos = 0
-    private var marcador: MutableLiveData<Int>
+    private var marcador: MutableLiveData<String>
+    private var maxPuntuacion = 0
 
     init
     {
-        marcador = MutableLiveData<Int>()
+        marcador = MutableLiveData<String>()
 
-        marcador.setValue(1)
+        marcador.setValue("-Puntuación actual: $aciertos -Puntuación máxima: $maxPuntuacion")
     }
 
     fun setAcertado(estado: Boolean)
@@ -48,12 +49,23 @@ class MarcadorViewModel: ViewModel()
         totalPreguntas = num
     }
 
+    fun getMaxAcertado():Int
+    {
+        return maxPuntuacion
+    }
+
+    fun setMaxAcertado()
+    {
+        maxPuntuacion = maxPuntuacion + 1
+    }
+
+
     fun getPreguntas(): Int
     {
         return totalPreguntas
     }
 
-    fun getMarcador(): MutableLiveData<Int>
+    fun getMarcador(): MutableLiveData<String>
     {
         if (marcador == null)
         {
@@ -63,8 +75,7 @@ class MarcadorViewModel: ViewModel()
 
     fun setMarcador()
     {
-        val aux: Int = marcador.value ?: 0
-        marcador.setValue(aux + 1)
+        marcador.setValue("-Puntuación actual: $aciertos -Puntuación máxima: $maxPuntuacion")
     }
 
     fun setPreguntaActual()

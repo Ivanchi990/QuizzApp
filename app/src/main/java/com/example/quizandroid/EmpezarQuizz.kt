@@ -29,11 +29,18 @@ class EmpezarQuizz : AppCompatActivity()
 
         marcadorViewModel.setPreguntas(cursor.count)
 
-        val nameObserver = Observer<Int>{ valor ->
+        val nameObserver = Observer<String>{ valor ->
             binding!!.mostrarPuntos?.setText(valor.toString())
         }
 
         marcadorViewModel.getMarcador().observe(this, nameObserver)
+
+        if(marcadorViewModel.getPreguntaActual() > marcadorViewModel.getPreguntas())
+        {
+            intent = Intent(this, MainActivity::class.java)
+
+            startActivity(intent)
+        }
 
         binding?.fabHome?.setOnClickListener{
             intent = Intent(this, MainActivity::class.java)

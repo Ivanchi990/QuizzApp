@@ -86,23 +86,19 @@ class MiBDOpenHelper(contex: Context, factory: SQLiteDatabase.CursorFactory?) :
         return cursor
     }
 
-    fun obtenerPregunta(id: String):Cursor
+    fun obtenerPregunta(id: Int):Cursor
     {
-        val num = Integer.parseInt(id)
-
         val db= this.readableDatabase
-        var cursor = db.rawQuery("SELECT * FROM ${MiBDOpenHelper.TABLA_PREGUNTAS} WHERE $COLUMNA_ID= $num", null)
+        var cursor = db.rawQuery("SELECT * FROM ${MiBDOpenHelper.TABLA_PREGUNTAS} WHERE $COLUMNA_ID= $id", null)
 
         cursor.moveToFirst()
 
         return cursor
     }
 
-    fun eliminarPregunta(id: String)
+    fun eliminarPregunta(id: Int)
     {
-        val num = Integer.parseInt(id)
-
         val db= this.writableDatabase
-        db.rawQuery("DELETE FROM ${MiBDOpenHelper.TABLA_PREGUNTAS} WHERE $COLUMNA_ID = $num", null)
+        db.rawQuery("DELETE FROM ${MiBDOpenHelper.TABLA_PREGUNTAS} WHERE $COLUMNA_ID = $id", null)
     }
 }

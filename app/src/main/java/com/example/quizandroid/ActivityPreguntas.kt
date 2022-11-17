@@ -41,8 +41,7 @@ class ActivityPreguntas : AppCompatActivity()
         val cursor = preguntas.obtenerPreguntas()
 
         miSQLiteRecyclerViewAdapter = SQLiteRecyclerViewAdapter(
-            onClickListener = { pos -> dameID(pos) },
-            onClickDelete = { posi -> eliminaID(posi)}
+            onClickListener = { pos -> dameID(pos) }
         )
 
         miSQLiteRecyclerViewAdapter.SQLiteRecyclerViewAapter(this,  cursor)
@@ -57,19 +56,12 @@ class ActivityPreguntas : AppCompatActivity()
         startActivity(intent)
     }
 
-    fun dameID(pos: String)
+    fun dameID(pos: Int)
     {
         intent = Intent(this, MostrarPregunta::class.java).apply {
             putExtra("id", pos)
         }
 
         startActivity(intent)
-    }
-
-
-    fun eliminaID(pos: String)
-    {
-        preguntas.eliminarPregunta(pos)
-        miSQLiteRecyclerViewAdapter.notifyDataSetChanged()
     }
 }

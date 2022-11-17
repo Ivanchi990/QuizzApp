@@ -5,10 +5,13 @@ import android.os.Binder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
+import androidx.fragment.app.activityViewModels
+import com.example.quizandroid.Fragments.MarcadorViewModel
+import com.example.quizandroid.SQLiteBD.MiBDOpenHelper
 
 class MainActivity : AppCompatActivity()
 {
-
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)

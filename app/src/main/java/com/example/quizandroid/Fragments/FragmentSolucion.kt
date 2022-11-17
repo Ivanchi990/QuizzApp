@@ -1,11 +1,15 @@
 package com.example.quizandroid.Fragments
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.example.quizandroid.MainActivity
 import com.example.quizandroid.R
 import com.example.quizandroid.databinding.FragmentSolucionBinding
 
@@ -28,10 +32,9 @@ class FragmentSolucion : Fragment()
 
         cargarSolucion()
 
-        binding?.nextPreg?.setOnClickListener()
-        {
+        Handler(Looper.getMainLooper()).postDelayed({
             siguientePreg()
-        }
+        }, 3000)
 
         return frag.root
         return inflater.inflate(R.layout.fragment_solucion, container, false)
@@ -59,14 +62,11 @@ class FragmentSolucion : Fragment()
 
     fun siguientePreg()
     {
-        if(marcadorViewModel.getPreguntas() < marcadorViewModel.getPreguntaActual())
+        if(marcadorViewModel.getAcertado() == false)
         {
-            val transaction = fragmentManager?.beginTransaction()
-
-            val fragmento1 = FragmentResultados()
-            transaction?.replace(R.id.fragmentContainerView, fragmento1)
-            transaction?.addToBackStack(null)
-            transaction?.commit()
+            requireContext().let{
+                it.startActivity(Intent(it, MainActivity::class.java))
+            }
         }
         else
         {

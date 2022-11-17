@@ -8,8 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.quizandroid.R
 
 class SQLiteRecyclerViewAdapter(
-    private val onClickListener: (String) -> Unit,
-    private val onClickDelete: (String) -> Unit
+    private val onClickListener: (Int) -> Unit
 ): RecyclerView.Adapter<PreguntasViewHolder>()
 {
     private lateinit var context: Context
@@ -31,7 +30,7 @@ class SQLiteRecyclerViewAdapter(
     override fun onBindViewHolder(holder: PreguntasViewHolder, position: Int)
     {
         cursor.moveToPosition(position)
-        holder.render(cursor.getInt(0),cursor.getString(1), onClickListener, onClickDelete)
+        holder.render(cursor.getInt(0),cursor.getString(1), onClickListener)
     }
 
     //Obtenemos el tamaño de la lista
