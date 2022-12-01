@@ -18,6 +18,7 @@ class MiBDOpenHelper(contex: Context, factory: SQLiteDatabase.CursorFactory?) :
     {
         val DATABASE_VERSION = 1
         val DATABASE_NAME = "preguntas.db"
+        //tabla preguntas
         val TABLA_PREGUNTAS = "preguntas"
         val COLUMNA_ID = "id_preg"
         val COLUMNA_TEXTO = "texto_preg"
@@ -25,6 +26,9 @@ class MiBDOpenHelper(contex: Context, factory: SQLiteDatabase.CursorFactory?) :
         val COLUMNA_RES2 = "res_2"
         val COLUMNA_RES3 = "res_3"
         val COLUMNA_RES4 = "res_4"
+        //tabla resultado
+        val TABLA_RESULTADOMAX = "resultadoMax"
+        val PUNTUACION_MAX = "puntuacionMax"
     }
 
 
@@ -34,8 +38,12 @@ class MiBDOpenHelper(contex: Context, factory: SQLiteDatabase.CursorFactory?) :
         try
         {
             var crearTablaPreguntas = "CREATE TABLE $TABLA_PREGUNTAS ($COLUMNA_ID INTEGER PRIMARY KEY AUTOINCREMENT, $COLUMNA_TEXTO TEXT, $COLUMNA_RES1 TEXT, $COLUMNA_RES2 TEXT, $COLUMNA_RES3 TEXT, $COLUMNA_RES4 TEXT)"
+            var crearTablaResultados = "CREATE TABLE $TABLA_RESULTADOMAX ($PUNTUACION_MAX INTEGER)"
 
             db!!.execSQL(crearTablaPreguntas)
+            db!!.execSQL(crearTablaResultados)
+
+            setMax(0)
         }
         catch (e: SQLiteException)
         {
@@ -48,7 +56,10 @@ class MiBDOpenHelper(contex: Context, factory: SQLiteDatabase.CursorFactory?) :
         try
         {
             val dropTablaPreguntas = "DROP TABLE IF EXISTS $TABLA_PREGUNTAS"
+            val dropTablaResultados = "DROP TABLE IF EXISTS $TABLA_RESULTADOMAX"
+
             db!!.execSQL(dropTablaPreguntas)
+            db!!.execSQL(dropTablaResultados)
             onCreate(db)
         }
         catch (e: SQLiteException)
@@ -96,9 +107,27 @@ class MiBDOpenHelper(contex: Context, factory: SQLiteDatabase.CursorFactory?) :
         return cursor
     }
 
-    fun eliminarPregunta(id: Int)
+    fun getMax(): Int
+    {
+        val db= this.readableDatabase
+        var cursor = db.rawQuery("SELECT * FROM ${MiBDOpenHelper.TABLA_RESULTADOMAX}", null)
+
+        if(cursor.moveToFirst())
+            return cursor.getInt(0)
+
+        return 0
+    }
+
+    fun setMax(max: Int)
     {
         val db= this.writableDatabase
-        db.rawQuery("DELETE FROM ${MiBDOpenHelper.TABLA_PREGUNTAS} WHERE $COLUMNA_ID = $id", null)
+
+        db.execSQL("DELETE FROM $TABLA_RESULTADOMAX")
+
+        val data = ContentValues()
+        data.put(PUNTUACION_MAX,max)
+
+        db.insert(TABLA_RESULTADOMAX,null,data)
+        db.close()
     }
 }

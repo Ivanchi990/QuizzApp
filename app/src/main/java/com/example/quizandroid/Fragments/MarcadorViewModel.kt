@@ -51,12 +51,18 @@ class MarcadorViewModel: ViewModel()
 
     fun getMaxAcertado():Int
     {
-        return maxPuntuacion
+        return base!!.getMax()
+    }
+
+    fun setMaxAcertado2(num: Int)
+    {
+        base!!.setMax(num)
+        maxPuntuacion = num
     }
 
     fun setMaxAcertado()
     {
-        maxPuntuacion = maxPuntuacion + 1
+        base!!.setMax(maxPuntuacion + 1)
     }
 
 

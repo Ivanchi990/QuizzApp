@@ -26,9 +26,19 @@ class FragmentPreguntas : Fragment()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                     savedInstanceState: Bundle?): View?
     {
+        if(marcadorViewModel.getPreguntaActual() > marcadorViewModel.getPreguntas())
+        {
+            val transaction = fragmentManager?.beginTransaction()
+
+            val fragmento1 = FragmentResultados()
+            transaction?.replace(R.id.fragmentContainerView, fragmento1)
+            transaction?.addToBackStack(null)
+            transaction?.commit()
+        }
+
         if(marcadorViewModel.getPreguntaActual() > marcadorViewModel.getMaxAcertado())
         {
-            marcadorViewModel.setMaxAcertado()
+            marcadorViewModel.setMaxAcertado2(marcadorViewModel.getPreguntaActual())
         }
 
         base = marcadorViewModel.getDatabase()!!
