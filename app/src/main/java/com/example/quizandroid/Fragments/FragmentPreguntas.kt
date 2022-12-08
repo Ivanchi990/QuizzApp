@@ -81,8 +81,6 @@ class FragmentPreguntas : Fragment()
                     marcadorViewModel.setAcertado(true)
                 }
 
-                marcadorViewModel.setPreguntaActual()
-
                 val transaction= fragmentManager?.beginTransaction()
                 val fragmento2 = FragmentSolucion()
 

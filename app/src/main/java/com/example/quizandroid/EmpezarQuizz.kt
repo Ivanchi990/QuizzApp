@@ -42,6 +42,11 @@ class EmpezarQuizz : AppCompatActivity()
             startActivity(intent)
         }
 
+        var max = base.obtenerPuntuacionMax()
+        var puntuacionMaxima:Int = max.getInt(0)
+
+        binding!!.mostrarPuntos.text = puntuacionMaxima.toString()
+
         binding?.fabHome?.setOnClickListener{
             intent = Intent(this, MainActivity::class.java)
 
